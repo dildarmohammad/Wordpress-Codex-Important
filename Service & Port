@@ -1,15 +1,15 @@
-Service	           Port	
+Service	                 Port	
 
-cPanel	           2082	
+cPanel	                 2082	
 	
-cPanel SSL	       2083	
+cPanel SSL	         2083	
 	
-WHM	               2086	
+WHM	                 2086	
 	
-WHM SSL	           2087	
+WHM SSL	                 2087	
 	
-Webmail SSL	       2096
+Webmail SSL	         2096
 
-HTTP               80
+HTTP                     80
 
-HTTPS              443
+HTTPS                    443

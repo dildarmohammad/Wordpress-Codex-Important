@@ -1,5 +1,5 @@
-/*Redirect All Web Traffic
-If you have existing code in your .htaccess, add the following:*/
+Redirect All Web Traffic
+If you have existing code in your .htaccess, add the following:
 
 
 RewriteEngine On

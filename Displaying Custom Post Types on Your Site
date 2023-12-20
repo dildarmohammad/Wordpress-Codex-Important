@@ -1,0 +1,52 @@
+<?php
+
+/* New Custom Post Type reports*/
+
+function reports(){
+?>
+
+	<div class="row" id="loadmorediv">
+		<?php $new_loopA = new WP_Query( 
+		array(
+			'post_type' => 'reports',
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'meta_query' => array(
+            array(
+                'key' => 'feature_this_post',
+                'value' => '',
+                'compare' => 'NOT EXISTS'
+            ),
+            ),
+			'posts_per_page' => -1
+			) );
+			
+			
+		if($new_loopA->have_posts()): ?>
+		<?php while ($new_loopA->have_posts()):
+			$new_loopA->the_post(); 
+	?>
+	
+  
+	<div class="col-md-3">
+		<div class="loadnews">
+			<p class="news-thumb" style="margin-bottom: 15px;"><a href="<?php the_permalink();?>"><?php the_post_thumbnail('all-thumb');?></a></p>
+			<p class="loadposttitle"><strong><a style="color:#000000;" href="<?php the_permalink();?>"><?php the_title();?></a></strong></p>
+			<div class="row">
+			<div class="col-xs-6">
+				<?//php echo do_shortcode('[addtoany]');?>Reports
+			</div>
+			<div class="col-xs-6">
+			<p class="sdate text-right"><?php echo date('m/d/Y',strtotime(get_the_date()));?></p>
+		</div>
+		</div>
+		</div>
+	</div>
+	
+	<?php endwhile;?>
+			<?php endif; ?>
+			<?php wp_reset_query(); ?>
+
+	</div>
+<?php }
+add_shortcode('reports','reports');

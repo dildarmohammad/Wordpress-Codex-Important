@@ -13,3 +13,7 @@ Webmail SSL	         2096
 HTTP                     80
 
 HTTPS                    443
+
+SMTP                     587
+
+FTP                      21

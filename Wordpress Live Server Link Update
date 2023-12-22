@@ -1,0 +1,10 @@
+Change image URL ??? in WordPress database
+
+1. For images inside posts:
+
+UPDATE wp_posts SET post_content = REPLACE (post_content, 'src="//www.old-url.com', 'src="//new-url.com');
+
+
+2. For images linked as attachments:
+
+UPDATE wp_posts SET  guid = REPLACE (guid, 'https://www.old-url.com', 'https://new-url.com') WHERE post_type = 'attachment';

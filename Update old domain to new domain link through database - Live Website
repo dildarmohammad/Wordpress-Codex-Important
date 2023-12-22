@@ -1,0 +1,15 @@
+/*Step1: Update old domain to new domain link through database*/
+
+UPDATE wp_options SET option_value = replace(option_value, 'http://www.olddomain.com/', 'http://www.newdomain.com/') WHERE option_name = 'home' OR option_name = 'siteurl';
+
+UPDATE wp_posts SET guid = replace(guid, 'http://www.olddomain.com/','http://www.newdomain.com/');
+
+UPDATE wp_posts SET post_content = replace(post_content, 'http://www.olddomain.com/', 'http://www.newdomain.com/');
+
+UPDATE wp_postmeta SET meta_value = replace(meta_value, 'http://www.olddomain.com/', 'http://www.newdomain.com/');
+
+
+/*Step2: The easiest quick fix is add these define URL directives in wp-config.php:*/
+
+define('WP_HOME','http://example.com');
+define('WP_SITEURL','http://example.com');

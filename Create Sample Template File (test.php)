@@ -1,0 +1,15 @@
+<?php
+/**
+Template Name: Test
+*/
+
+get_header();
+?>
+
+<?php
+echo "This is my first template";
+?>
+
+<?php
+get_footer();
+?>

@@ -2,7 +2,7 @@
  * Proper way to enqueue scripts and styles
  */
 function wpdocs_theme_name_scripts() {
-	wp_enqueue_style( 'newstyle.css', get_stylesheet_uri(). '/newstyle.css');
-	//wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/example.js');
+	wp_enqueue_style( 'newstyle', get_stylesheet_uri(). '/newstyle.css');
+	//wp_enqueue_script( 'example', get_template_directory_uri() . '/js/example.js');
 }
 add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );

@@ -1,0 +1,73 @@
+<!-- Develop Thank You Page Template-->
+<?php
+/* Template Name: Thankyou */
+
+get_header();
+
+?>
+
+<div class="jumbotron text-center">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead"><strong>You are</strong> submitted successfully.</p>
+  <hr>
+  <p>
+    Having trouble? <a href="#">Contact us</a>
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-sm homepage-link" href="#" role="button">Continue to homepage</a>
+  </p>
+</div>
+
+
+<?php
+get_footer();
+?>
+
+<style>
+/* Customize the background color */
+a.homepage-link{margin-bottom: 80px !important;}
+
+.jumbotron {
+    background-color: #your-color;
+}
+
+/* Customize text color */
+.jumbotron {
+    color: #your-color;
+}
+
+/* Customize button styles */
+.btn-primary {
+    background-color: #your-color;
+    border-color: #your-color;
+}
+.btn-primary:hover {
+    background-color: #your-hover-color;
+    border-color: #your-hover-color;
+}
+
+/* Customize font styles */
+h1, p {
+    font-family: 'Your Font', sans-serif;
+}
+
+/* Customize spacing */
+.jumbotron {
+    padding: 20px;
+    margin-top: 10px;
+}
+
+/* Customize link styles */
+a {
+    color: #your-link-color;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Customize a custom class */
+.custom-paragraph {
+    font-size: 16px;
+    font-weight: bold;
+}
+</style>

@@ -1,0 +1,11 @@
+/**
+ * Sell only in Haryana
+ */
+function wc_sell_only_states( $states ) {
+	$states['IN'] = array(
+		'HR' => __( 'Haryana', 'woocommerce' ),
+	);
+
+	return $states;
+}
+add_filter( 'woocommerce_states', 'wc_sell_only_states' );

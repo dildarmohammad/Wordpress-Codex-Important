@@ -105,3 +105,6 @@ Step5: include or required posttype-shortcode.php in your functionphp file as pe
 /* Custom Post Type short code file include */
 
 require_once TRAVELWP_THEME_DIR . '/inc/posttype-shortcode.php';
+
+Step6: Add below short code in your wordpress page
+[bloggings]

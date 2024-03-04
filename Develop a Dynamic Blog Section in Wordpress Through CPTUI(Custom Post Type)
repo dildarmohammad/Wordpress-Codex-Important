@@ -1,0 +1,107 @@
+Develop a Dynamic Blog Section in Wordpress Through CPTUI(Custom Post Type)
+
+Step1: First of Install CPTUI plugin
+plugin link: https://wordpress.org/plugins/custom-post-type-ui/
+
+Step2: Add Post Types fields as per below
+a. Post Type Slug: blogs
+b. Plural Label : blogs
+c. Singular Label : blogs
+d. Menu Position as per below number
+
+5 – below Posts
+10 – below Media
+15 – below Links
+20 – below Pages
+25 – below comments
+60 – below first separator
+65 – below Plugins
+70 – below Users
+75 – below Tools
+80 – below Settings
+100 – below second separator
+
+Step3: 
+Write below code for blog section name is posttype-shortcode.php
+
+<?php
+function wpdocs_theme_name_scripts() {
+wp_enqueue_style( 'newstyle.css', get_template_directory_uri() . '/newstyle.css' );
+
+}
+add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
+?>
+<?php
+
+/* New Custom Post Type blogging*/
+
+function blogging(){
+?>
+
+	<div class="row" id="loadmorediv">
+		<?php $new_loopA = new WP_Query( 
+		array(
+			'post_type' => 'blogs',
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'meta_query' => array(
+            array(
+                'key' => 'feature_this_post',
+                'value' => '',
+                'compare' => 'NOT EXISTS'
+            ),
+            ),
+			'posts_per_page' => -1
+			) );
+			
+		
+			
+		if($new_loopA->have_posts()): ?>
+		<?php while ($new_loopA->have_posts()):
+			$new_loopA->the_post(); 
+	?>
+	
+  
+	<div class="col-md-4">
+	<div class="bloggin-text" style="background: #f0f0f0;">
+		<div class="loadnews">
+		<p class="join-team" style="margin-bottom: 15px;"><a href="<?php the_permalink();?>"><?php the_post_thumbnail('all-thumb');?></a></p>
+		<div class="bloggin-text-details" style="margin-left: 3%;margin-right: 3%;">
+		<div class="row">
+			<div class="col-xs-6">
+			<p class="sdate text-left"><?php echo date('m/d/Y',strtotime(get_the_date()));?></p>
+				
+			</div>
+			<div class="col-xs-6">
+			<?//php echo do_shortcode('[addtoany]');?><p class="sdate text-right">/BY ADMIN</p>
+		</div>
+		</div>
+		<p class="loadposttitle"><strong><a style="color:#000000;" href="<?php the_permalink();?>"><?php the_title();?></a></strong></p>
+        <p class="loadposttitle"><a style="color:#000000;" href="<?php the_permalink();?>"><?php the_excerpt();?></a></p>
+        </div>
+		</div>
+	</div>
+	</div>
+	
+	<?php endwhile;?>
+			<?php endif; ?>
+			<?php wp_reset_query(); ?>
+
+	</div>
+<?php }
+add_shortcode('bloggings','blogging');
+
+
+Step4: Write below code for style name is newstyle.css
+
+a.learn-morea{float: left;text-align: center;padding: 10px 30px;background: #e5bd43 !important;color: #ffffff;display: inline-block;border-radius: 5px;text-decoration:none;}
+a.learn-moreb{text-align: center;padding: 10px 30px;background: #e5bd43 !important;color: #ffffff;display: inline-block;border-radius: 5px;text-decoration:none;}
+i.fa.fa-check{background: #DF2235; border-radius: 50%; color: #ffffff; padding: 2px; font-size: 10px;}
+li#menu-item-796{float: right;text-align: center;padding: 0px 5px 0px 5px;background: #e5bd43 !important;display: inline-block;border-radius: 5px;text-decoration: none;}
+li#menu-item-796 a{color: #ffffff!important;}
+
+Step5: include or required posttype-shortcode.php in your functionphp file as per your theme
+
+/* Custom Post Type short code file include */
+
+require_once TRAVELWP_THEME_DIR . '/inc/posttype-shortcode.php';

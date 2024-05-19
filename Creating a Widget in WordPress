@@ -1,0 +1,28 @@
+Step 1: Register a sidebar of functions.php in your theme
+
+function webform_widget_areas() {
+
+    register_sidebar( array(
+        'name' => __( 'webform', 'webform' ),
+        'id' => 'webform',
+        'description' => __( 'Insert something for about us text.', 'webform' ),
+        'before_widget' => '<div class="widget span3">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4>',
+        'after_title' => '</h4>',
+    ) );
+
+
+
+}
+add_action('widgets_init', 'webform_widget_areas');
+
+
+
+Step2: Display Widget where you want like page, post, template or as per your theme location
+
+<?php dynamic_sidebar('webform'); ?>
+
+/*Note: Here webform is a 'id'*/
+
+

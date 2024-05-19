@@ -1,4 +1,4 @@
-Step 1: Register a sidebar of functions.php in your theme
+Step 1: Register a sidebar in your theme functions.php file
 
 function webform_widget_areas() {
 
